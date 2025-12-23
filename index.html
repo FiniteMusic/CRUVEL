@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/logo.jpg">
+    <title>CRUVEL - Home</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <img src="img/logo.jpg" alt="CRUVEL" width="65px" height="65px">
+            <span>CRUVEL</span>
+        </div>
+        
+        <nav class="nav">
+            <a href="#galeria" class="nav-link active">Galería</a>
+            <a href="#contacto" class="nav-link">Contacto</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="menu-section">
+                <h3>MENÚ</h3>
+                <a href="#" class="menu-item active" data-filter="all">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10 3L3 8V17H7V13H13V17H17V8L10 3Z"/>
+                    </svg>
+                    Todos
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>CATEGORÍAS</h3>
+                <a href="#" class="menu-item" data-filter="albañileria">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <rect x="2" y="2" width="6" height="6"/>
+                        <rect x="12" y="2" width="6" height="6"/>
+                        <rect x="2" y="12" width="6" height="6"/>
+                        <rect x="12" y="12" width="6" height="6"/>
+                    </svg>
+                    Albañilería
+                </a>
+                <a href="#" class="menu-item" data-filter="electricidad">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M11 2L5 12H10L9 18L15 8H10L11 2Z"/>
+                    </svg>
+                    Electricidad
+                </a>
+                <a href="#" class="menu-item" data-filter="plomeria">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10 2C6 2 3 5 3 9V14C3 15.5 4 17 6 17C8 17 9 15.5 9 14V11H11V14C11 15.5 12 17 14 17C16 17 17 15.5 17 14V9C17 5 14 2 10 2Z"/>
+                    </svg>
+                    Plomería
+                </a>
+                <a href="#" class="menu-item" data-filter="herreria">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M3 3H17V7H3V3Z M5 9H15V13H5V9Z M7 15H13V17H7V15Z"/>
+                    </svg>
+                    Herrería
+                </a>
+                <a href="#" class="menu-item" data-filter="acabados">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M4 2H16L18 6V18H2V6L4 2Z M6 8H14V12H6V8Z"/>
+                    </svg>
+                    Acabados de Interiores
+                </a>
+                <a href="#" class="menu-item" data-filter="impermeabilizacion">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10 2L6 8H10V12L14 6H10V2Z M4 14C4 16 6 18 10 18C14 18 16 16 16 14H4Z"/>
+                    </svg>
+                    Impermeabilización
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Gallery Section -->
+            <section class="gallery-section" id="galeria">
+                <div class="section-header">
+                    <h2>Galería de Trabajos</h2>
+                    
+                </div>
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Las tarjetas se generarán dinámicamente con JavaScript -->
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="contact-section" id="contacto" style="display: none;">
+                <div class="contact-header">
+                    <h2>Información de Contacto</h2>
+                    <p class="contact-subtitle">Estamos aquí para ayudarte con tu próximo proyecto</p>
+                </div>
+
+                <div class="contact-content">
+                    <!-- Company Info Card -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <rect width="40" height="40" rx="8" fill="#667eea"/>
+                                <path d="M20 12L28 18V28H23V22H17V28H12V18L20 12Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <h3 class="contact-card-title">Empresa</h3>
+                        <p class="contact-card-text" id="empresaNombre">CRUVEL</p>
+                        <p class="contact-card-label">Servicios profesionales de construcción y remodelación</p>
+                    </div>
+
+                    <!-- Responsible Person Card -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <rect width="40" height="40" rx="8" fill="#667eea"/>
+                                <circle cx="20" cy="15" r="5" fill="white"/>
+                                <path d="M12 28C12 23 16 21 20 21C24 21 28 23 28 28H12Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <h3 class="contact-card-title">Responsable</h3>
+                        <p class="contact-card-text">Marco Antonio De la Cruz Valle</p>
+                        <p class="contact-card-label">Encargado de proyectos</p>
+                    </div>
+
+                    <!-- Email Card -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <rect width="40" height="40" rx="8" fill="#667eea"/>
+                                <rect x="8" y="12" width="24" height="16" rx="2" stroke="white" stroke-width="2" fill="none"/>
+                                <path d="M8 12L20 20L32 12" stroke="white" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <h3 class="contact-card-title">Correo Electrónico</h3>
+                        <a href="mailto:maancruva@gmail.com" class="contact-card-link">
+                            maancruva@gmail.com
+                        </a>
+                        <p class="contact-card-label">Envíanos un mensaje</p>
+                    </div>
+
+                    <!-- Phone Card -->
+                    <div class="contact-card contact-card-full">
+                        <div class="contact-phone-header">
+                            <div class="contact-icon">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                    <rect width="40" height="40" rx="8" fill="#667eea"/>
+                                    <rect x="13" y="8" width="14" height="24" rx="2" stroke="white" stroke-width="2" fill="none"/>
+                                    <circle cx="20" cy="28" r="1.5" fill="white"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="contact-card-title">Teléfonos de Contacto</h3>
+                                <p class="contact-card-label">Llámanos o escríbenos por WhatsApp</p>
+                            </div>
+                        </div>
+
+                        <div class="phone-numbers">
+                            <!-- Phone Number 1 -->
+                            <div class="phone-item">
+                                <div class="phone-info">
+                                    <svg class="phone-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.69 14.9 16.08 14.82 16.43 14.93C17.55 15.3 18.75 15.5 20 15.5C20.55 15.5 21 15.95 21 16.5V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z" fill="currentColor"/>
+                                    </svg>
+                                    <a href="tel:5572110553" class="phone-number">55 7211 0553</a>
+                                </div>
+                                <a href="https://wa.me/525572110553?text=Hola%2C%20buen%20d%C3%ADa.%0AVi%20su%20portafolio%20y%20me%20interesa%20contratar%20un%20servicio.%0A%C2%BFPodr%C3%ADa%20brindarme%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%2C%20por%20favor%3F" 
+                                   target="_blank" 
+                                   class="whatsapp-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                    </svg>
+                                    WhatsApp
+                                </a>
+                            </div>
+
+                            <!-- Phone Number 2 -->
+                            <div class="phone-item">
+                                <div class="phone-info">
+                                    <svg class="phone-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.69 14.9 16.08 14.82 16.43 14.93C17.55 15.3 18.75 15.5 20 15.5C20.55 15.5 21 15.95 21 16.5V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z" fill="currentColor"/>
+                                    </svg>
+                                    <a href="tel:5522808515" class="phone-number">55 2280 8515</a>
+                                </div>
+                                <a href="https://wa.me/525522808515?text=Hola%2C%20buen%20d%C3%ADa.%0AVi%20su%20portafolio%20y%20me%20interesa%20contratar%20un%20servicio.%0A%C2%BFPodr%C3%ADa%20brindarme%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%2C%20por%20favor%3F" 
+                                   target="_blank" 
+                                   class="whatsapp-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                    </svg>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal para ver imagen completa -->
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-image-container">
+                <img src="" alt="Imagen completa" id="modalImage">
+            </div>
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p class="modal-category" id="modalCategory"></p>
+                <p class="modal-description" id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
