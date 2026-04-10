@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/logo.jpg">
+    <link rel="icon" href="img/logo.png">
     <title>CRUVEL - Home</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,8 +13,15 @@
 <body>
     <!-- Header -->
     <header class="header">
+        <!-- Botón Hamburguesa para móviles -->
+        <button class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
         <div class="logo">
-            <img src="img/logo.jpg" alt="CRUVEL" width="65px" height="65px">
+            <img src="img/logo.png" alt="CRUVEL" width="65px" height="65px">
             <span>CRUVEL</span>
         </div>
         
@@ -24,22 +31,36 @@
         </nav>
     </header>
 
+    <!-- Overlay para cerrar el menú móvil -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
     <div class="container">
         <!-- Sidebar -->
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
             <div class="menu-section">
                 <h3>MENÚ</h3>
-                <a href="#" class="menu-item active" data-filter="all">
+                <a href="#" class="menu-item active" data-filter="construccion">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M10 3L3 8V17H7V13H13V17H17V8L10 3Z"/>
                     </svg>
-                    Todos
+                    Construcción y Remodelación
+                </a>
+                <a href="#" class="menu-item" data-filter="computo">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <rect x="2" y="4" width="16" height="10" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <path d="M1 16H19" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M8 14V16" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M12 14V16" stroke="currentColor" stroke-width="1.5"/>
+                        <circle cx="10" cy="9" r="2" fill="currentColor"/>
+                    </svg>
+                    Equipos de Cómputo
                 </a>
             </div>
 
-            <div class="menu-section">
+            <div class="menu-section" id="categoriasMenu">
                 <h3>CATEGORÍAS</h3>
-                <a href="#" class="menu-item" data-filter="albañileria">
+                <!-- Categorías de Construcción -->
+                <a href="#" class="menu-item" data-filter="albañileria" data-grupo="construccion">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                         <rect x="2" y="2" width="6" height="6"/>
                         <rect x="12" y="2" width="6" height="6"/>
@@ -48,35 +69,98 @@
                     </svg>
                     Albañilería
                 </a>
-                <a href="#" class="menu-item" data-filter="electricidad">
+                <a href="#" class="menu-item" data-filter="electricidad" data-grupo="construccion">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M11 2L5 12H10L9 18L15 8H10L11 2Z"/>
                     </svg>
                     Electricidad
                 </a>
-                <a href="#" class="menu-item" data-filter="plomeria">
+                <a href="#" class="menu-item" data-filter="plomeria" data-grupo="construccion">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M10 2C6 2 3 5 3 9V14C3 15.5 4 17 6 17C8 17 9 15.5 9 14V11H11V14C11 15.5 12 17 14 17C16 17 17 15.5 17 14V9C17 5 14 2 10 2Z"/>
                     </svg>
                     Plomería
                 </a>
-                <a href="#" class="menu-item" data-filter="herreria">
+                <a href="#" class="menu-item" data-filter="herreria" data-grupo="construccion">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M3 3H17V7H3V3Z M5 9H15V13H5V9Z M7 15H13V17H7V15Z"/>
                     </svg>
                     Herrería
                 </a>
-                <a href="#" class="menu-item" data-filter="acabados">
+                <a href="#" class="menu-item" data-filter="acabados" data-grupo="construccion">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M4 2H16L18 6V18H2V6L4 2Z M6 8H14V12H6V8Z"/>
                     </svg>
                     Acabados de Interiores
                 </a>
-                <a href="#" class="menu-item" data-filter="impermeabilizacion">
+                <a href="#" class="menu-item" data-filter="impermeabilizacion" data-grupo="construccion">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M10 2L6 8H10V12L14 6H10V2Z M4 14C4 16 6 18 10 18C14 18 16 16 16 14H4Z"/>
                     </svg>
                     Impermeabilización
+                </a>
+                
+                <!-- Nuevas Categorías de Cómputo -->
+                <a href="#" class="menu-item" data-filter="sistemas-operativos" data-grupo="computo">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <rect x="3" y="4" width="14" height="12" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <path d="M6 7H14M6 10H14M6 13H11" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    Sistemas Operativos
+                </a>
+                <a href="#" class="menu-item" data-filter="software-desarrollo" data-grupo="computo">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M7 6L3 10L7 14M13 6L17 10L13 14M12 4L8 16" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                    </svg>
+                    Software de Desarrollo
+                </a>
+                <a href="#" class="menu-item" data-filter="software-diseno" data-grupo="computo">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <path d="M10 6V10L13 13" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    Software de Diseño Gráfico
+                </a>
+                <a href="#" class="menu-item" data-filter="software-productividad" data-grupo="computo">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <rect x="3" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <rect x="11" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <rect x="3" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <rect x="11" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                    </svg>
+                    Software de Productividad
+                </a>
+                <a href="#" class="menu-item" data-filter="licencias-software" data-grupo="computo">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <rect x="4" y="6" width="12" height="9" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <path d="M7 6V5C7 3.5 8 2 10 2C12 2 13 3.5 13 5V6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <circle cx="10" cy="11" r="1.5" fill="currentColor"/>
+                    </svg>
+                    Licencias de Software
+                </a>
+                <a href="#" class="menu-item" data-filter="controladores" data-grupo="computo">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <circle cx="10" cy="10" r="6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <circle cx="10" cy="10" r="2" fill="currentColor"/>
+                        <path d="M10 4V6M10 14V16M4 10H6M14 10H16" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    Controladores (Drivers)
+                </a>
+                <a href="#" class="menu-item" data-filter="soporte-hardware" data-grupo="computo">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <rect x="3" y="5" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <path d="M8 8L10 10L12 8" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <path d="M6 12H14" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    Soporte y Actualización de Hardware
+                </a>
+                <a href="#" class="menu-item" data-filter="limpieza-mantenimiento" data-grupo="computo">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M8 2L6 8H14L12 2H8Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <path d="M6 8L4 18H16L14 8" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <circle cx="10" cy="13" r="1.5" fill="currentColor"/>
+                    </svg>
+                    Limpieza y Mantenimiento Preventivo
                 </a>
             </div>
         </aside>
@@ -87,7 +171,6 @@
             <section class="gallery-section" id="galeria">
                 <div class="section-header">
                     <h2>Galería de Trabajos</h2>
-                    
                 </div>
                 <div class="gallery-grid" id="galleryGrid">
                     <!-- Las tarjetas se generarán dinámicamente con JavaScript -->
@@ -101,53 +184,171 @@
                     <p class="contact-subtitle">Estamos aquí para ayudarte con tu próximo proyecto</p>
                 </div>
 
-                <div class="contact-content">
-                    <!-- Company Info Card -->
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                <rect width="40" height="40" rx="8" fill="#113e44"/>
-                                <path d="M20 12L28 18V28H23V22H17V28H12V18L20 12Z" fill="white"/>
-                            </svg>
+                <!-- Sección: Construcción y Remodelación -->
+                <div class="contact-category-section">
+                    <div class="category-section-header">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor" class="category-icon">
+                            <path d="M4 4H12V8H4V4Z M16 4H24V8H16V4Z M4 12H12V16H4V12Z M16 12H24V16H16V12Z M4 20H12V24H4V20Z M16 20H24V24H16V20Z M28 4V28H26V4H28Z"/>
+                        </svg>
+                        <div>
+                            <h3 class="category-title">Construcción y Remodelación</h3>
+                            <p class="category-description">Servicios profesionales de albañilería, electricidad, plomería, herrería e impermeabilización</p>
                         </div>
-                        <h3 class="contact-card-title">Empresa</h3>
-                        <p class="contact-card-text" id="empresaNombre">CRUVEL</p>
-                        <p class="contact-card-label">Servicios profesionales de construcción y remodelación</p>
                     </div>
 
-                    <!-- Responsible Person Card -->
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                <rect width="40" height="40" rx="8" fill="#113e44"/>
-                                <circle cx="20" cy="15" r="5" fill="white"/>
-                                <path d="M12 28C12 23 16 21 20 21C24 21 28 23 28 28H12Z" fill="white"/>
-                            </svg>
+                    <div class="contact-content">
+                        <!-- Company Info Card -->
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                    <rect width="40" height="40" rx="8" fill="#113e44"/>
+                                    <path d="M20 12L28 18V28H23V22H17V28H12V18L20 12Z" fill="white"/>
+                                </svg>
+                            </div>
+                            <h3 class="contact-card-title">Empresa</h3>
+                            <p class="contact-card-text" id="empresaNombre">CRUVEL</p>
+                            <p class="contact-card-label">Servicios profesionales de construcción y remodelación</p>
                         </div>
-                        <h3 class="contact-card-title">Responsable</h3>
-                        <p class="contact-card-text">Marco Antonio De la Cruz Valle</p>
-                        <p class="contact-card-label">Encargado de proyectos</p>
+
+                        <!-- Responsible Person Card -->
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                    <rect width="40" height="40" rx="8" fill="#113e44"/>
+                                    <circle cx="20" cy="15" r="5" fill="white"/>
+                                    <path d="M12 28C12 23 16 21 20 21C24 21 28 23 28 28H12Z" fill="white"/>
+                                </svg>
+                            </div>
+                            <h3 class="contact-card-title">Responsable</h3>
+                            <p class="contact-card-text">Marco Antonio De la Cruz Valle</p>
+                            <p class="contact-card-label">Encargado de proyectos</p>
+                        </div>
+
+                        <!-- Email Card -->
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                    <rect width="40" height="40" rx="8" fill="#113e44"/>
+                                    <rect x="8" y="12" width="24" height="16" rx="2" stroke="white" stroke-width="2" fill="none"/>
+                                    <path d="M8 12L20 20L32 12" stroke="white" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                            <h3 class="contact-card-title">Correo Electrónico</h3>
+                            <a href="mailto:maancruva@gmail.com" class="contact-card-link">
+                                maancruva@gmail.com
+                            </a>
+                            <p class="contact-card-label">Envíanos un mensaje</p>
+                        </div>
+
+                        <!-- Phone Card -->
+                        <div class="contact-card contact-card-full">
+                            <div class="contact-phone-header">
+                                <div class="contact-icon">
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                        <rect width="40" height="40" rx="8" fill="#113e44"/>
+                                        <rect x="13" y="8" width="14" height="24" rx="2" stroke="white" stroke-width="2" fill="none"/>
+                                        <circle cx="20" cy="28" r="1.5" fill="white"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="contact-card-title">Teléfonos de Contacto</h3>
+                                    <p class="contact-card-label">Llámanos o escríbenos por WhatsApp</p>
+                                </div>
+                            </div>
+
+                            <div class="phone-numbers">
+                                <!-- Phone Number 1 -->
+                                <div class="phone-item">
+                                    <div class="phone-info">
+                                        <svg class="phone-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.69 14.9 16.08 14.82 16.43 14.93C17.55 15.3 18.75 15.5 20 15.5C20.55 15.5 21 15.95 21 16.5V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z" fill="currentColor"/>
+                                        </svg>
+                                        <a href="tel:5572110553" class="phone-number">55 7211 0553</a>
+                                    </div>
+                                    <a href="https://wa.me/525572110553?text=Hola%2C%20buen%20d%C3%ADa.%0AVi%20su%20portafolio%20y%20me%20interesa%20contratar%20un%20servicio.%0A%C2%BFPodr%C3%ADa%20brindarme%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%2C%20por%20favor%3F" 
+                                       target="_blank" 
+                                       class="whatsapp-btn">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                        </svg>
+                                        WhatsApp
+                                    </a>
+                                </div>
+
+                                <!-- Phone Number 2 -->
+                                <div class="phone-item">
+                                    <div class="phone-info">
+                                        <svg class="phone-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.69 14.9 16.08 14.82 16.43 14.93C17.55 15.3 18.75 15.5 20 15.5C20.55 15.5 21 15.95 21 16.5V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z" fill="currentColor"/>
+                                        </svg>
+                                        <a href="tel:5522808515" class="phone-number">55 2280 8515</a>
+                                    </div>
+                                    <a href="https://wa.me/525522808515?text=Hola%2C%20buen%20d%C3%ADa.%0AVi%20su%20portafolio%20y%20me%20interesa%20contratar%20un%20servicio.%0A%C2%BFPodr%C3%ADa%20brindarme%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%2C%20por%20favor%3F" 
+                                       target="_blank" 
+                                       class="whatsapp-btn">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                        </svg>
+                                        WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Divisor -->
+                <div class="section-divider"></div>
+
+                <!-- Sección: Soporte Técnico en Cómputo -->
+                <div class="contact-category-section">
+                    <div class="category-section-header">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor" class="category-icon">
+                            <rect x="4" y="6" width="24" height="16" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M2 26H30" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 22V26" stroke="currentColor" stroke-width="2"/>
+                            <path d="M20 22V26" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="16" cy="13" r="3" fill="currentColor"/>
+                        </svg>
+                        <div>
+                            <h3 class="category-title">Soporte Técnico y Mantenimiento de Equipos de Cómputo</h3>
+                            <p class="category-description">Mantenimiento preventivo y correctivo, actualización de hardware y software, instalación de programas especializados</p>
+                        </div>
                     </div>
 
-                    <!-- Email Card -->
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                <rect width="40" height="40" rx="8" fill="#113e44"/>
-                                <rect x="8" y="12" width="24" height="16" rx="2" stroke="white" stroke-width="2" fill="none"/>
-                                <path d="M8 12L20 20L32 12" stroke="white" stroke-width="2" fill="none"/>
-                            </svg>
+                    <div class="contact-content contact-content-tech">
+                        <!-- Responsible Person Card -->
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                    <rect width="40" height="40" rx="8" fill="#113e44"/>
+                                    <circle cx="20" cy="15" r="5" fill="white"/>
+                                    <path d="M12 28C12 23 16 21 20 21C24 21 28 23 28 28H12Z" fill="white"/>
+                                </svg>
+                            </div>
+                            <h3 class="contact-card-title">Responsable</h3>
+                            <p class="contact-card-text">Marco Uriel De la Cruz Velázquez</p>
+                            <p class="contact-card-label">Especialista en soporte técnico</p>
                         </div>
-                        <h3 class="contact-card-title">Correo Electrónico</h3>
-                        <a href="mailto:maancruva@gmail.com" class="contact-card-link">
-                            maancruva@gmail.com
-                        </a>
-                        <p class="contact-card-label">Envíanos un mensaje</p>
-                    </div>
 
-                    <!-- Phone Card -->
-                    <div class="contact-card contact-card-full">
-                        <div class="contact-phone-header">
+                        <!-- Email Card -->
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                    <rect width="40" height="40" rx="8" fill="#113e44"/>
+                                    <rect x="8" y="12" width="24" height="16" rx="2" stroke="white" stroke-width="2" fill="none"/>
+                                    <path d="M8 12L20 20L32 12" stroke="white" stroke-width="2" fill="none"/>
+                                </svg>
+                            </div>
+                            <h3 class="contact-card-title">Correo Electrónico</h3>
+                            <a href="mailto:Marc_lio@outlook.com" class="contact-card-link">
+                                Marc_lio@outlook.com
+                            </a>
+                            <p class="contact-card-label">Envíanos un mensaje</p>
+                        </div>
+
+                        <!-- Phone Card -->
+                        <div class="contact-card contact-card-phone-single">
                             <div class="contact-icon">
                                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
                                     <rect width="40" height="40" rx="8" fill="#113e44"/>
@@ -155,48 +356,21 @@
                                     <circle cx="20" cy="28" r="1.5" fill="white"/>
                                 </svg>
                             </div>
-                            <div>
-                                <h3 class="contact-card-title">Teléfonos de Contacto</h3>
-                                <p class="contact-card-label">Llámanos o escríbenos por WhatsApp</p>
+                            <h3 class="contact-card-title">Teléfono de Contacto</h3>
+                            <div class="phone-info-single">
+                                <svg class="phone-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.69 14.9 16.08 14.82 16.43 14.93C17.55 15.3 18.75 15.5 20 15.5C20.55 15.5 21 15.95 21 16.5V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z" fill="currentColor"/>
+                                </svg>
+                                <a href="tel:5514062692" class="phone-number">55 1406 2692</a>
                             </div>
-                        </div>
-
-                        <div class="phone-numbers">
-                            <!-- Phone Number 1 -->
-                            <div class="phone-item">
-                                <div class="phone-info">
-                                    <svg class="phone-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.69 14.9 16.08 14.82 16.43 14.93C17.55 15.3 18.75 15.5 20 15.5C20.55 15.5 21 15.95 21 16.5V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z" fill="currentColor"/>
-                                    </svg>
-                                    <a href="tel:5572110553" class="phone-number">55 7211 0553</a>
-                                </div>
-                                <a href="https://wa.me/525572110553?text=Hola%2C%20buen%20d%C3%ADa.%0AVi%20su%20portafolio%20y%20me%20interesa%20contratar%20un%20servicio.%0A%C2%BFPodr%C3%ADa%20brindarme%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%2C%20por%20favor%3F" 
-                                   target="_blank" 
-                                   class="whatsapp-btn">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                                    </svg>
-                                    WhatsApp
-                                </a>
-                            </div>
-
-                            <!-- Phone Number 2 -->
-                            <div class="phone-item">
-                                <div class="phone-info">
-                                    <svg class="phone-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.69 14.9 16.08 14.82 16.43 14.93C17.55 15.3 18.75 15.5 20 15.5C20.55 15.5 21 15.95 21 16.5V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z" fill="currentColor"/>
-                                    </svg>
-                                    <a href="tel:5522808515" class="phone-number">55 2280 8515</a>
-                                </div>
-                                <a href="https://wa.me/525522808515?text=Hola%2C%20buen%20d%C3%ADa.%0AVi%20su%20portafolio%20y%20me%20interesa%20contratar%20un%20servicio.%0A%C2%BFPodr%C3%ADa%20brindarme%20informaci%C3%B3n%20y%20una%20cotizaci%C3%B3n%2C%20por%20favor%3F" 
-                                   target="_blank" 
-                                   class="whatsapp-btn">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                                    </svg>
-                                    WhatsApp
-                                </a>
-                            </div>
+                            <a href="https://wa.me/525514062692?text=Hola%2C%20buen%20d%C3%ADa.%20Me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20y%20cotizaci%C3%B3n%20sobre%20alguno%20de%20los%20servicios%20de%20soporte%20y%20mantenimiento%20para%20equipos%20de%20c%C3%B3mputo.%20Quedo%20atento(a)%20a%20sus%20comentarios.%20Gracias." 
+                               target="_blank" 
+                               class="whatsapp-btn whatsapp-btn-center">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                </svg>
+                                WhatsApp
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -205,20 +379,20 @@
     </div>
 
     <!-- Modal para ver imagen completa con carrusel -->
-<div class="modal" id="imageModal">
-    <div class="modal-content">
-        <button class="modal-close">&times;</button>
-        <div class="modal-image-container">
-            <!-- El carrusel se renderizará aquí dinámicamente -->
-            <div id="carouselContainer"></div>
-        </div>
-        <div class="modal-info">
-            <h3 id="modalTitle"></h3>
-            <p class="modal-category" id="modalCategory"></p>
-            <p class="modal-description" id="modalDescription"></p>
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-image-container">
+                <!-- El carrusel se renderizará aquí dinámicamente -->
+                <div id="carouselContainer"></div>
+            </div>
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p class="modal-category" id="modalCategory"></p>
+                <p class="modal-description" id="modalDescription"></p>
+            </div>
         </div>
     </div>
-</div>
 
     <script src="js/app.js"></script>
 </body>
